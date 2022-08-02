@@ -256,7 +256,9 @@ def _communicate(
             tensor_recv_next_waitfunc = tensor_recv_next_wait
     else:
         # To protect against race condition when using batch_isend_irecv().
+        torch.cuda.nvtx.range_push("p2p_synch")
         torch.cuda.synchronize()
+        torch.cuda.nvtx.range_pop()
 
     # If using scatter-gather optimization, gather smaller chunks.
     if scatter_gather_optimization_doable:
