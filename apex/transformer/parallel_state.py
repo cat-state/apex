@@ -569,6 +569,12 @@ def set_virtual_pipeline_model_parallel_rank(rank):
     _VIRTUAL_PIPELINE_MODEL_PARALLEL_RANK = rank
 
 
+def set_virtual_pipeline_model_parallel_world_size(world_size):
+    """Set the virtual pipeline-parallel world size."""
+    global _VIRTUAL_PIPELINE_MODEL_PARALLEL_WORLD_SIZE
+    _VIRTUAL_PIPELINE_MODEL_PARALLEL_WORLD_SIZE = world_size
+
+
 def get_virtual_pipeline_model_parallel_world_size():
     """Return the virtual pipeline-parallel world size."""
     global _VIRTUAL_PIPELINE_MODEL_PARALLEL_WORLD_SIZE
